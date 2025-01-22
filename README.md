@@ -1,2 +1,5 @@
 # curso_python
 curso de python
+
+CLASE: DESAROLLO DE SISTEMAS IV
+PROFESOR: FEDERICO CIRETT
