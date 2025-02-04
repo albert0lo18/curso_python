@@ -14,6 +14,29 @@ def dibuja_tablero(simbolos:dict):
      {simbolos['7']} | {simbolos['8']} | {simbolos['9']}   
     ''')
 
+def juegos(simbolos:dict):
+    ''' juego del gato '''
+    
+    lista_combinaciones = [
+        ['1','2','3'],
+        ['4','5','6'],
+        ['7','8','9'],
+        ['1','4','7'],
+        ['2','5','8'],
+        ['3','6','9'],
+        ['1','5','9'],
+        ['3','5','7']
+    ]
+    
+def checa_winner (simbolos:dict, combinaciones:list):
+    '''checa si hay un ganador'''
+    for combinacion in combinaciones:
+        if simbolos[combinacion[0]] == simbolos[combinacion[1]] == simbolos[combinacion[2]]!= ' ':
+            return simbolos[combinacion[0]]
+    return None
+
+
+
 def ia(simbolos:dict):
     '''juega la maquina'''
     ocupado = True
