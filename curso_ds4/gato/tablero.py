@@ -17,6 +17,8 @@ def dibuja_tablero(simbolos:dict):
 def juegos(simbolos:dict):
     ''' juego del gato '''
     
+    print('juego del gato')
+    
     lista_combinaciones = [
         ['1','2','3'],
         ['4','5','6'],
@@ -28,14 +30,44 @@ def juegos(simbolos:dict):
         ['3','5','7']
     ]
     
+    en_juego=True
+    
+    ganador = ""
+    
+    movimientos = 0
+    
+    dibuja_tablero(simbolos)
+    
+    while en_juego:
+        
+        usuario(simbolos)
+        dibuja_tablero(simbolos)
+        movimientos+=1
+        ganador = checa_winner(simbolos, lista_combinaciones)
+        if ganador is not None: 
+            en_juego=False
+            continue
+              
+        ia(simbolos)
+        dibuja_tablero(simbolos)
+        movimientos+=1
+        ganador = checa_winner(simbolos, lista_combinaciones)
+        if ganador is not None:
+            en_juego=False
+            continue
+        
+        if movimientos >= 9:
+            en_juego=False
+            continue
+    
+    return ganador     
+
 def checa_winner (simbolos:dict, combinaciones:list):
     '''checa si hay un ganador'''
     for combinacion in combinaciones:
         if simbolos[combinacion[0]] == simbolos[combinacion[1]] == simbolos[combinacion[2]]!= ' ':
             return simbolos[combinacion[0]]
     return None
-
-
 
 def ia(simbolos:dict):
     '''juega la maquina'''
@@ -64,13 +96,21 @@ def usuario(simbolos:dict):
 if __name__ == '__main__':
     numeros = [str(x) for x in range(1,10)]
     simbolos = {x:x for x in numeros}
+    ganador = juegos(simbolos)
+    
+    if ganador is not None:
+        print (f'el ganador es: {ganador}')
+    else:
+        print('El juego es empate!')
+   
+    '''
     print('Bienvenido al juego del gato!')
     dibuja_tablero(simbolos)
     ia(simbolos)
     dibuja_tablero(simbolos)
     usuario(simbolos)
     dibuja_tablero(simbolos)
-    '''
+   
     X=random.choice(numeros)
     numeros.remove(X)
     simbolos[X] = 'X'
