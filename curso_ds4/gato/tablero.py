@@ -47,6 +47,9 @@ def juegos(simbolos:dict):
         if ganador is not None: 
             en_juego=False
             continue
+        if movimientos >= 9:
+            en_juego=False
+            continue
               
         ia(simbolos)
         dibuja_tablero(simbolos)
