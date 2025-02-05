@@ -96,34 +96,4 @@ def usuario(simbolos:dict):
         else: 
             print('Debe ingresar un NUMERO del 1 al 9.')
 
-if __name__ == '__main__':
-    numeros = [str(x) for x in range(1,10)]
-    simbolos = {x:x for x in numeros}
-    ganador = juegos(simbolos)
-    
-    if ganador is not None:
-        print (f'el ganador es: {ganador}')
-    else:
-        print('El juego es empate!')
-   
-    '''
-    print('Bienvenido al juego del gato!')
-    dibuja_tablero(simbolos)
-    ia(simbolos)
-    dibuja_tablero(simbolos)
-    usuario(simbolos)
-    dibuja_tablero(simbolos)
-   
-    X=random.choice(numeros)
-    numeros.remove(X)
-    simbolos[X] = 'X'
-    dibuja_tablero(simbolos)
-    O=random.choice(numeros)
-    numeros.remove(O)
-    simbolos[O] = 'O'
-    dibuja_tablero(simbolos)
-    print(numeros)
-    '''
-    
-
     
