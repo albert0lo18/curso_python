@@ -1,7 +1,7 @@
 ''' Clase Game: Juego entre dos equipos'''
 from random import choice
 from athlete import Athlete
-from games import Sport
+from sports import Sport
 from team import Team
 
 class Game:
@@ -11,7 +11,8 @@ class Game:
             'NBA': [x for x in range(50,136)],
             'NFL': [x for x in range(0,61)],
             'MLB': [x for x in range(0,21)],
-            'MLX': [x for x in range(0,11)]
+            'MLX': [x for x in range(0,11)],
+            'FIFA': [x for x in range(0,6)]
         }
     def __init__(self, A:Team, B:Team):
         ''' Constructor de la clase Game '''
@@ -41,6 +42,7 @@ class Game:
     def to_json(self)->dict:
         ''' Método para representar la clase como diccionario '''
         return {"A":self.A.to_json(), "B":self.B.to_json(), "score":self.score}
+        
     
 if __name__ == "__main__":
     dt = ['Jordan', 'Johnson', 'Pipen','Bird', 'Kobe']

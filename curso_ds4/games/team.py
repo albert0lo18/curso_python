@@ -3,7 +3,7 @@
     Clase Team: Equipo
 """
 from athlete import Athlete
-from games import Sport
+from sports import Sport
 
 class Team:
     """ Clase para representar un equipo """
