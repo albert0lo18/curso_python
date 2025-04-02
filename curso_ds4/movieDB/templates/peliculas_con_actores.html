@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Buscar Películas con Actores{% endblock %}
+{% block body %}
+<div>
+    <h2>Buscar Películas con Actores</h2>
+    <form action="/peliculas_con_actores" method="get">
+        <input type="text" name="actor" placeholder="Nombre del actor" required>
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+
+{% if actor %}
+    <h3>Películas en las que participó {{ actor }}</h3>
+    {% if peliculas %}
+        <ul>
+            {% for pelicula, personaje in peliculas %}
+                <li>
+                    <a href="/pelicula/{{ pelicula.id_pelicula }}">{{ pelicula.titulo_pelicula }}</a>
+                    - Personaje: {{ personaje }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron películas para este actor.</p>
+    {% endif %}
+{% endif %}
+
+{% endblock %}
